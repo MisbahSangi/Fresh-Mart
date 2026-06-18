@@ -68,10 +68,12 @@ app.use("/api/reviews", require("./routes/reviewRoutes"));
 app.use("/api/upload", require("./routes/uploadRoutes"));
 app.use("/api/payment", require("./routes/paymentRoutes"));
 
-// ── Health Check ──────────────────────────────────
-app.get("/", (req, res) => {
+// ── Health Check (moved to /api/health) ────────────────────
+// Root path '/' must NOT be claimed here — in production it belongs to React.
+// UptimeRobot / Render health probes should ping /api/health instead.
+app.get("/api/health", (req, res) => {
   res.json({
-    message: "🛒 FreshMart API Running!",
+    message: "🛍️ FreshMart API Running!",
     status: "OK",
     database: "GroceryStore on MongoDB Atlas",
   });
