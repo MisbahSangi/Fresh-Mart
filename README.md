@@ -46,31 +46,6 @@ freshmart/
 
 ---
 
-## Environment Variables
-
-### Backend — create `backend/.env`
-
-```
-MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/GroceryStore
-JWT_SECRET=<random 32+ char string>
-ADMIN_SECRET=<your admin panel password>
-CLOUDINARY_CLOUD_NAME=<your cloud name>
-CLOUDINARY_API_KEY=<your api key>
-CLOUDINARY_API_SECRET=<your api secret>
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-CORS_ORIGIN=http://localhost:3000
-PORT=5000
-```
-
-### Frontend — create `frontend/.env`
-
-```
-REACT_APP_STRIPE_PUBLIC_KEY=pk_test_...
-REACT_APP_API_URL=http://localhost:5000/api
-```
-
----
 
 ## Running Locally
 
@@ -139,11 +114,3 @@ The first login marks that phone number's account as `isAdmin: true`.
 
 ---
 
-## Test Stripe Card
-
-```
-Card number : 4242 4242 4242 4242
-Expiry      : any future date
-CVC         : any 3 digits
-ZIP         : any 5 digits
-```
