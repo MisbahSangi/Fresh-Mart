@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import toast from "react-hot-toast";
 import useProducts from "../../hooks/useProducts";
@@ -8,7 +8,6 @@ import ProductCard from "../../components/common/ProductCard";
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
 
   // Initialise directly from URL params — prevents a double-fetch
   const [searchTerm, setSearchTerm] = useState(

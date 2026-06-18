@@ -149,7 +149,6 @@ const HeroCarousel = ({ saleProducts }) => {
 // ── Main Page ─────────────────────────────────────
 const HomePage = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState([]);
