@@ -15,6 +15,7 @@ const app = express();
 // ── Gzip Compression ─────────────────────────────
 // Compresses all JSON responses — reduces bandwidth by 60-80%
 // A 20-product listing goes from ~20KB to ~3KB
+app.set("trust proxy", 1);
 app.use(compression());
 
 // ── Security Headers (helmet) ─────────────────────
@@ -22,9 +23,15 @@ app.use(helmet());
 
 // ── CORS ──────────────────────────────────────────
 app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
-    credentials: true,
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        "img-src": ["'self'", "data:", "https://res.cloudinary.com"],
+        "frame-src": ["'self'", "https://maps.google.com", "https://js.stripe.com"],
+        "script-src": ["'self'", "https://js.stripe.com"],
+        "connect-src": ["'self'", "https://api.stripe.com"],
+      },
+    },
   }),
 );
 
